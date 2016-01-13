@@ -26,6 +26,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fge-Jp-BGj">
                                 <rect key="frame" x="20" y="106" width="67" height="30"/>
                                 <state key="normal" title="Twitterize"/>
+                                <connections>
+                                    <action selector="twitterize:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gEl-Ud-WzA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoA-kB-ddL">
                                 <rect key="frame" x="525" y="111" width="55" height="30"/>
@@ -61,6 +64,9 @@
                             <constraint firstItem="YoA-kB-ddL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="uRg-IJ-z54"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="messageTextField" destination="AfA-Y0-4E3" id="a9i-VH-fnF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
