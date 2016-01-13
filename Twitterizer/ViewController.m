@@ -11,6 +11,7 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *messageTextField;
 @property NSString *returnMessage;
+@property (weak, nonatomic) IBOutlet UILabel *wordCount;
 
 @end
 
@@ -18,19 +19,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
 }
+
 - (IBAction)twitterize:(UIButton *)sender {
     NSString *message = self.messageTextField.text;
-    NSCharacterSet *vowelSet = [NSCharacterSet characterSetWithCharactersInString:@"aeiouAEIOU"];
-    self.returnMessage = [message stringByTrimmingCharactersInSet:vowelSet];
+    NSCharacterSet *vowels = [NSCharacterSet characterSetWithCharactersInString:@"aeiouAEIOU"];
+    self.returnMessage = [[message componentsSeparatedByCharactersInSet:vowels] componentsJoinedByString:@""];
     self.messageTextField.text = self.returnMessage;
-    NSLog(@"%@", self.returnMessage);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end
