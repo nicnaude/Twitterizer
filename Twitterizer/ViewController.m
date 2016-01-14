@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *messageTextField;
 @property NSString *returnMessage;
 @property (weak, nonatomic) IBOutlet UILabel *wordCount;
@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
 }
 
 - (IBAction)twitterize:(UIButton *)sender {
@@ -27,12 +27,12 @@
     NSCharacterSet *vowels = [NSCharacterSet characterSetWithCharactersInString:@"aeiouAEIOU"];
     self.returnMessage = [[message componentsSeparatedByCharactersInSet:vowels] componentsJoinedByString:@""];
     self.messageTextField.text = self.returnMessage;
+    NSLog(@"%lu",self.returnMessage.length);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    self.wordCount.text = [NSString stringWithFormat:@"Word count: %@", self.returnMessage];
 }
-
 
 @end
